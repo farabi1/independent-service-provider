@@ -1,8 +1,12 @@
-.nav-container{
+.nav-container {
     margin: 1em;
     text-align: center;
-    text-decoration: none;
+
 }
-.link{ 
+
+.link {
     margin: 2rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: larger;
 }
