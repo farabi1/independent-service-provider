@@ -3,28 +3,22 @@ import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { auth } from '../../firebase.init';
 
-
-
-const Login = () => {
+const Signup = () => {
 
     const provider = new GoogleAuthProvider();
 
     const googleAuth = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
-               
+
                 const user = result.user;
-               
+
             }).catch((error) => {
-                
+
                 const errorMessage = error.message;
-               
+
             });
     }
-
-
-
-
     return (
         <div className='w-50 mx-auto'>
             <Form>
@@ -48,4 +42,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Signup;
