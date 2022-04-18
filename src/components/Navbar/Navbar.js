@@ -1,4 +1,4 @@
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -24,7 +24,14 @@ const Navbar = () => {
         });
     }, []);
 
-
+    const handleLogOut = () => {
+        signOut(auth)
+            .then(() => {
+                // Sign-out successful.
+            }).catch((error) => {
+                // An error happened.
+            });
+    };
 
     return (
         <>
@@ -34,7 +41,7 @@ const Navbar = () => {
                 <Link className='link' to='/contact'>Contact</Link>
                 <Link className='link' to='/blogs'>Blogs</Link>
                 <Link className='link' to='/about'>About me</Link>
-                {user?.uid ?<Button>Logout</Button> : <Link className='link' to='/login'>Log in</Link>}
+                {user?.uid ? <Button onClick={handleLogOut}>Logout</Button> : <Link className='link' to='/login'>Log in</Link>}
 
             </div>
         </>
