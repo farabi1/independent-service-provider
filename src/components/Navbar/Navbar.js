@@ -1,5 +1,8 @@
-import React from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { auth } from '../../firebase.init';
 import './Navbar.css';
 
 
@@ -7,7 +10,21 @@ import './Navbar.css';
 
 
 const Navbar = () => {
-   
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+
+                setUser(user);
+
+            } else {
+                setUser({});
+            }
+        });
+    }, []);
+
+
 
     return (
         <>
@@ -17,8 +34,8 @@ const Navbar = () => {
                 <Link className='link' to='/contact'>Contact</Link>
                 <Link className='link' to='/blogs'>Blogs</Link>
                 <Link className='link' to='/about'>About me</Link>
-                <Link className='link' to='/login'>Log in</Link>
-                
+                {user?.uid ?<Button>Logout</Button> : <Link className='link' to='/login'>Log in</Link>}
+
             </div>
         </>
     );
