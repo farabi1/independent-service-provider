@@ -1,6 +1,7 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { auth } from '../../firebase.init';
 
 
@@ -38,10 +39,12 @@ const Login = () => {
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                    Submit
+                    Log in
                 </Button>
                 <div className="my-3">
-                    <Button onClick={googleAuth}>Google Signup</Button>
+                    <Button onClick={googleAuth}>Google Login</Button>
+                    <Link className='link' to='/signup'>Signup</Link>
+
                 </div>
             </Form>
         </div>

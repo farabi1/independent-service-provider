@@ -32,7 +32,7 @@ const Signup = () => {
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                    Submit
+                    Sign Up
                 </Button>
                 <div className="my-3">
                     <Button onClick={googleAuth}>Google Signup</Button>
