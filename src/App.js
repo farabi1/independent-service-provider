@@ -9,6 +9,7 @@ import Contact from './components/Contact/Contact';
 import About from './components/AboutMe/About';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
+import RequireAuth from './components/RequireAuth/RequireAuth';
 
 
 
@@ -23,7 +24,11 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/checkout" element={<Checkout></Checkout>}></Route>
+        <Route path="/checkout" element={
+          <RequireAuth>
+              <Checkout></Checkout>
+          </RequireAuth>
+        }></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/about" element={<About></About>}></Route>
