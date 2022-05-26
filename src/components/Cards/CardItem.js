@@ -12,6 +12,7 @@ const CardItem = (props) => {
                     <Card.Text>
                         <h3>{text}</h3>
                         <h3>{text}</h3>
+                        <h3>{text}</h3>
                     </Card.Text>
                     <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
