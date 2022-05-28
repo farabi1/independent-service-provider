@@ -1,15 +1,16 @@
 import './App.css';
-import Home from './components/Home/Home';
-import { Route, Routes } from 'react-router-dom';
+
+// import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import Checkout from './components/Checkout/Checkout';
-import Blogs from './components/Blogs/Blogs';
-import Contact from './components/Contact/Contact';
-import About from './components/AboutMe/About';
-import Login from './components/Login/Login';
-import Signup from './components/Signup/Signup';
-import RequireAuth from './components/RequireAuth/RequireAuth';
-import NotFund from './Pages/NotFound/NotFound';
+// import Checkout from './Pages/Checkout/Checkout'
+// import Blogs from './Pages/Blogs/Blogs'
+// import Contact from './components/Contact/Contact';
+// import About from './Pages/AboutMe/About';
+// import Login from './components/Login/Login';
+// import Signup from './components/Signup/Signup';
+// import RequireAuth from './components/RequireAuth/RequireAuth';
+// import NotFund from './Pages/NotFound/NotFound';
+// import Home from './Pages/Home/Home';
 
 
 
@@ -22,7 +23,7 @@ function App() {
 
       <Navbar></Navbar>
 
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/checkout" element={
           <RequireAuth>
@@ -35,7 +36,7 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="*" element={<NotFund></NotFund>}></Route>
-      </Routes>
+      </Routes> */}
     </div>
   );
 }

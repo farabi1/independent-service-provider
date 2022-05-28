@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDQoVLRKJJ8hR1kaT6lEOjST3dSMhRIOA4",
-  authDomain: "single-page-service-provider.firebaseapp.com",
-  projectId: "single-page-service-provider",
-  storageBucket: "single-page-service-provider.appspot.com",
-  messagingSenderId: "1077024857204",
-  appId: "1:1077024857204:web:fcde39bfd077000cdb0521"
+  apiKey: "AIzaSyB7Q0yeuLvAwVKvT_UA36e1DBLvTOHL0jg",
+  authDomain: "single-service-provider-57c16.firebaseapp.com",
+  projectId: "single-service-provider-57c16",
+  storageBucket: "single-service-provider-57c16.appspot.com",
+  messagingSenderId: "289424344320",
+  appId: "1:289424344320:web:8a18e00bc7ca6552d9dfe5"
 };
 
 const app = initializeApp(firebaseConfig);
