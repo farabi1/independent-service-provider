@@ -1,56 +1,138 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import React from 'react';
-
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useForm } from 'react-hook-form';
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import { auth } from '../../firebase.init';
 
 
 
-const Login = () => {
+const provider = new GoogleAuthProvider();
 
+
+const Login = () => {
     const navigate = useNavigate();
 
-    const provider = new GoogleAuthProvider();
+    const { register, formState: { errors }, handleSubmit } = useForm();
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+
+    let loginError;
+
+
+    if (error) {
+        loginError = <h3 className=' text-red-600'>{error?.message}</h3>
+    }
+
+
+
+
+
+    const onSubmit = data => {
+        console.log(user);
+        signInWithEmailAndPassword(data.email, data.password);
+        navigate("/");
+
+    };
+
+
+
 
     const googleAuth = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
 
                 const user = result.user;
+                console.log(user);
                 navigate("/");
 
             }).catch((error) => {
 
                 const errorMessage = error.message;
-
+                console.log(errorMessage);
             });
     };
-
-
-    const handleLogIn = (event) => {
-        event.preventDefault();
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-
-                const user = userCredential.user;
-
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-
-            });
-    };
-
-
-
-
     return (
-        <div className='w-50 mx-auto'>
+        <div>
+            <Header></Header>
+            <div className="w-full max-w-md m-auto mt-10 bg-white rounded-lg border shadow-lg">
 
+                <div className="m-6">
+                    <div className="flex items-center my-5 justify-center">
+                        <h1 className="text-3xl font-bold mt-6 mb-4">
+                            Login to your account
+                        </h1>
+                    </div>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <label className="text-left">Email :</label>
+                        <input
+                            type="email"
+                            placeholder="Type your Email"
+                            className="w-full p-2 border-2 rounded-md outline-none text-sm mb-4 mt-2"
+                            {...register("email", {
+                                required: {
+                                    value: true,
+                                    message: 'Email Required'
+                                },
+                                pattern: {
+                                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                    message: 'Please provide valid email'
+                                }
+                            })} />
+                        <label className="">
+                            {errors.email?.type === 'required' && <span className="label-text-alt text-red-600">{errors.email.message}</span>}
+                            {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-600">{errors.email.message}</span>}
+                        </label> <br />
+
+                        <label className="text-left">Password :</label>
+                        <input
+                            type="password"
+                            placeholder="Type your Password"
+                            className="w-full p-2 text-primary border-2 rounded-md outline-none text-sm mb-4"
+                            {...register("password", {
+                                required: {
+                                    value: true,
+                                    message: 'Password Required'
+                                },
+                                minLength: {
+                                    value: 5,
+                                    message: 'Please provide 5 characters or longer password'
+                                }
+                            })} />
+                        <label className="">
+                            {errors.password?.type === 'required' && <span className="label-text-alt text-red-600">{errors.password.message}</span>}
+                            {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-600">{errors.password.message}</span>}
+                        </label> <br />
+
+                        {loginError}
+                        <input className="bg-teal-500 w-full hover:bg-teal-600 py-1 px-2 text-lg text-white rounded" type="submit" value="Login" />
+                    </form>
+
+                    <div className="my-4">
+                        <button className="py-2 px-4 w-full border rounded-md border-emerald-300 bg-emerald-500 text-white hover:bg-sky-600 hover:text-white" onClick={googleAuth}>
+
+                            <p className='text-lg font-semibold'>Google Login</p>
+
+                        </button>
+                    </div>
+                    <div className="flex items-center mt-5">
+                        <button className="justify-center ">
+                            <p>Don't have an account? <Link className='text-teal-500' to="/signup">Sign Up Here</Link> </p>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <Footer></Footer>
         </div>
     );
 };

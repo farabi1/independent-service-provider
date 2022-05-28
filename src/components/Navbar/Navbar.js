@@ -43,13 +43,9 @@ const Navbar = () => {
 
             <div className="m-6 text-xl text-teal-500 font-semibold ">
                 <Link className="mx-3 hover:text-teal-600" to='/'>Home</Link>
-                <Link className="mx-3 hover:text-teal-600" to='/about'>About</Link>
-                <Link className="mx-3 hover:text-teal-600" to='/inventory'>Inventory</Link>
+                <Link className="mx-3 hover:text-teal-600" to='/checkout'>Checkout</Link>
                 <Link className="mx-3 hover:text-teal-600" to='/blogs'>Blogs</Link>
-                {
-                    user && <Link className="mx-3 hover:text-teal-600" to='/receivedata'>Item Submission</Link>
-                }
-
+                <Link className="mx-3 hover:text-teal-600" to='/about'>About</Link>
                 {
                     user?.uid ? (<button onClick={handleLogout} className='font-semibold shadow-sm'>Logout</button>) :
                         (<Link className="mx-3 hover:text-teal-600" to='/login'>Login</Link>
