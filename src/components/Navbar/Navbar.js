@@ -45,6 +45,7 @@ const Navbar = () => {
                 <Link className="mx-3 hover:text-teal-600" to='/'>Home</Link>
                 <Link className="mx-3 hover:text-teal-600" to='/checkout'>Checkout</Link>
                 <Link className="mx-3 hover:text-teal-600" to='/blogs'>Blogs</Link>
+                <Link className="mx-3 hover:text-teal-600" to='/contact'>Contact</Link>
                 <Link className="mx-3 hover:text-teal-600" to='/about'>About</Link>
                 {
                     user?.uid ? (<button onClick={handleLogout} className='font-semibold shadow-sm'>Logout</button>) :
