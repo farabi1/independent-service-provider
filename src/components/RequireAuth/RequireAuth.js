@@ -10,6 +10,8 @@ import { auth } from '../../firebase.init';
 
 function RequireAuth({ children }) {
 
+
+
     const [user] = useAuthState(auth);
     let location = useLocation();
 

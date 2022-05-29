@@ -38,7 +38,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between bg-slate-100 shadow-md">
 
             <div className="mx-8 m-6">
-                <Link className="text-teal-500 hover:text-teal-600 font-bold text-4xl shadow-lg p-2" to='/'>FR</Link>
+                <Link className="text-teal-500 hover:text-teal-600 font-bold text-4xl shadow-lg p-2" to='/'>G.C.
+                </Link>
             </div>
 
             <div className="m-6 text-xl text-teal-500 font-semibold ">
