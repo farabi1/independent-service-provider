@@ -24,7 +24,7 @@ const CardItem = (props) => {
 
                 </div>
                 <div className="flex items-end justify-center">
-                    <button onClick={() => toCheckoutPage()} className='bg-indigo-500 hover:bg-indigo-600 w-full py-2 px-4 border rounded-md font-semibold text-2xl text-white mx-2 mb-4' >Learn More</button>
+                    <button onClick={() => toCheckoutPage()} className='bg-indigo-500 hover:bg-indigo-600 w-full py-2 px-4 border rounded-md font-semibold text-2xl text-white mx-2 mb-4' >Get Appointment</button>
                 </div>
             </div>
 

@@ -8,7 +8,7 @@ const Banner = () => {
                 <div className="mx-10">
                     <h1 className=" text-teal-800 font-bold text-4xl  p-2" to='/'>The Graphology Consultancy</h1>
                     <p className=" font-bold text-2xl p-2 my-5 rounded-md">Providing expert handwriting analysis and advice for business and <span className='text-teal-500'>Self-knowledge</span> </p>
-                    <button className=' bg-emerald-400 hover:bg-emerald-500 px-3 py-2 mx-2 rounded-lg text-lg font-bold '>Learn More</button>
+                    <button className=' bg-emerald-400 hover:bg-emerald-500 px-3 py-2 mx-2 rounded-lg text-lg font-bold text-white '>Learn More</button>
 
                 </div>
             </div>
@@ -21,8 +21,3 @@ const Banner = () => {
 
 export default Banner;
 
-//
-// self-knowledge
-// The Graphology Consultancy
-
-//  
