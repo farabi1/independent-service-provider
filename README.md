@@ -1,5 +1,4 @@
-#Couldn't Finish the Assignment
+# Getting Started with Warehouse App with Tailwind
 
-# For exam and Laptop Display issue 
-
+This project was Created with Tailwind [The Graphology Consultancy](https://single-service-provider-57c16.web.app/).
 
