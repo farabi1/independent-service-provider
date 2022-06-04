@@ -27,6 +27,7 @@ const About = () => {
                             <div className="py-3 text-xl font-semibold">5.Node js</div>
                             <div className="py-3 text-xl font-semibold">6.Express js</div>
                             <div className="py-3 text-xl font-semibold">7.MongoDB</div>
+                            <div className="py-3 text-xl font-semibold">7.MongoDB</div>
                         </div>
                     </div>
                 </div>
